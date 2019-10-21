@@ -1,0 +1,9 @@
+ Given an integer N and a character C, write a fragment of code that outputs N lines: the
+first line having one character, the second two, … making an empty triangle of C characters
+and spaces.
+ Example output for values N=5 and C = ‘*’ should appear as follows:
+*
+**
+* *
+*  *
+***** 
