@@ -1,0 +1,4 @@
+A ‘palindrome’ is a string which reads the same from left to right or from right to left. One
+famous example is “able was I ere I saw elba” – as might have been said by Napoleon after
+he was exiled to the island of Elba. You are given a string S. Write a fragment of code
+which returns true if S is a palindrome, false otherwise. 
