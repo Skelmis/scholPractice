@@ -1,0 +1,5 @@
+As part of a game, you want the user to enter a number between 1 and 9. Write a
+fragment of code that prompts the user to enter a number, reads the value they entered,
+and checks to see if it is in the range 1 to 9. If the number is not in the required range
+you should display an error message and ask the user to try again. If they enter an invalid
+number 10 times, your program should just give them the value 5. 
