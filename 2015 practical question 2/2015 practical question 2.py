@@ -36,26 +36,47 @@ def MinuteCarry(minuteDifference, hourDifference):
         hourDifference -= 1 #Remove 1 hour of time because its minutes now
     return minuteDifference, hourDifference
 
+while True:
+    #Getting user input
+    print("Please enter any data in the following format:\nhours:minutes.seconds")
+    correctInput = False
+    while correctInput == False:
+        try:
+            inputOne = str(input("Please enter the start time: "))
+            correctInput = True
+        except Exception as e:
+            print(f"An error occured, please try again.\n{e}")
 
-#Getting users input split into the relevant parts
-one = SplitInput(inputOne)
-two = SplitInput(inputTwo)
+    correctInput = False
+    while correctInput == False:
+        try:
+            inputTwo = str(input("Please enter the finish time: "))
+            correctInput = True
+        except Exception as e:
+            print(f"An error occured, please try again.\n{e}")
 
-secondDifference = GetDifference(one[2], two[2])
-minuteDifference = GetDifference(one[1], two[1])
-hourDifference = GetDifference(one[0], two[0])
+    #Getting users input split into the relevant parts
+    one = SplitInput(inputOne)
+    two = SplitInput(inputTwo)
+    if int(one[1]) < 0 or int(one[1]) > 60 or int(one[2]) < 0 or int(one[2]) > 60 or int(two[1]) < 0 or int(two[1]) > 60 or int(two[2]) < 0 or int(two[2]) > 60:
+        print("Invalid input detected. Please try again")
+        break
 
-secondDifference = int(secondDifference)
-minuteDifference = int(minuteDifference)
-hourDifference = int(hourDifference)
-#Checking to see if the person start before they began
-if hourDifference < 0:
-    print("It appears you finished before you started")
-    time.sleep(5)
-    sys.exit()
+    secondDifference = GetDifference(one[2], two[2])
+    minuteDifference = GetDifference(one[1], two[1])
+    hourDifference = GetDifference(one[0], two[0])
 
-#Start figuring out if time needs carrying over
-minuteDifference, hourDifference = MinuteCarry(minuteDifference, hourDifference)
-secondDifference, minuteDifference = SecondCarry(secondDifference, minuteDifference)
+    secondDifference = int(secondDifference)
+    minuteDifference = int(minuteDifference)
+    hourDifference = int(hourDifference)
+    #Checking to see if the person start before they began
+    if hourDifference < 0:
+        print("It appears you finished before you started")
+        time.sleep(5)
+        sys.exit()
 
-print(f"\nOutput based on example input should be:\n1:47.33.\nCurrent output is\n{hourDifference}:{minuteDifference}.{secondDifference}")
+    #Start figuring out if time needs carrying over
+    minuteDifference, hourDifference = MinuteCarry(minuteDifference, hourDifference)
+    secondDifference, minuteDifference = SecondCarry(secondDifference, minuteDifference)
+
+    print(f"\nTime Taken was:\n{hourDifference}:{minuteDifference}.{secondDifference}\n")
