@@ -1,0 +1,31 @@
+Time (Careful and Accurate Programming)
+Your programming work in this question will be assessed on two criteria:
+(a) Completeness and accuracy of the program.
+(b) Good presentation. That is, it should make good use of programming language facilities,
+be well organised, neatly laid out, and lightly commented.
+
+Software often has to deal with time values – reading, writing and doing calculations may
+all be required. Consequently, most programming languages have libraries of functions to
+manage times (eg: time.h accesses time functions in C). Your task for this question is to
+write a program with your own time handling.
+Your program must read a ‘start’ time and a ‘finish’ time (in hours, minutes and seconds)
+from the keyboard, then report the difference (in hours, minutes and seconds). If for
+example, the inputs were a runner’s start and finish times for a marathon, your program
+would be able to tell them how long they took. Your program must read integers,
+characters and/or strings from input and must not use any time facilities from your
+programming language or libraries.
+A sample run of a version of the program might have input and output like this (note that
+data input by the person running the program is underlined):
+Enter start time: 10:45.37
+Enter finish time: 12:33.10
+Time taken was 1:47.33
+Enter start time: 12:33.24
+Enter finish time: 12.27.12
+You finished before you began
+The format used for inputting and outputting times is up to you. Think about how you will
+tell the user what format to use. Think about other issues that might arise and how you
+will deal with incorrect input, if that can happen.
+ 
+-8-
+(Question 3 – continued on next page)
+3. Parking Cars (Problem Solving and Programming)
