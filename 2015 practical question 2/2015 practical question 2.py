@@ -5,8 +5,11 @@
 #Take input as a string, split it based on special characters into an array
 #Work on each item individually to calculate differences
 
-inputOne = "1:10.20"#placeholder values
-inputTwo = "5:20.10"
+import time
+import sys
+
+inputOne = "10:45.37"#placeholder values
+inputTwo = "12:33.10"
 
 def SplitInput(input):#splits the input into the relevant format hour - minute - seconds
     splitInputOne = input.split(":")
@@ -21,16 +24,38 @@ def GetDifference(first, second):#Takes two ints, finds the difference between t
     difference = second - first
     return difference
 
+def SecondCarry(secondDifference, minuteDifference):
+    if secondDifference < 0: #If negative number
+        secondDifference += 60 #Add 60 seconds to create a positive
+        minuteDifference -= 1 #Remove a minute
+    return secondDifference, minuteDifference
+
+def MinuteCarry(minuteDifference, hourDifference):
+    if minuteDifference < 0: #If negative number
+        minuteDifference += 60 #Add an hour to create a positive
+        hourDifference -= 1 #Remove 1 hour of time because its minutes now
+    return minuteDifference, hourDifference
+
 
 #Getting users input split into the relevant parts
 one = SplitInput(inputOne)
 two = SplitInput(inputTwo)
 
 secondDifference = GetDifference(one[2], two[2])
-print(secondDifference)
-
-mintueDifference = GetDifference(one[1], two[1])
-print(mintueDifference)
-
+minuteDifference = GetDifference(one[1], two[1])
 hourDifference = GetDifference(one[0], two[0])
-print(hourDifference)
+
+secondDifference = int(secondDifference)
+minuteDifference = int(minuteDifference)
+hourDifference = int(hourDifference)
+#Checking to see if the person start before they began
+if hourDifference < 0:
+    print("It appears you finished before you started")
+    time.sleep(5)
+    sys.exit()
+
+#Start figuring out if time needs carrying over
+minuteDifference, hourDifference = MinuteCarry(minuteDifference, hourDifference)
+secondDifference, minuteDifference = SecondCarry(secondDifference, minuteDifference)
+
+print(f"\nOutput based on example input should be:\n1:47.33.\nCurrent output is\n{hourDifference}:{minuteDifference}.{secondDifference}")
